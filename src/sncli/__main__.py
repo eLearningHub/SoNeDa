@@ -1,6 +1,10 @@
 """Command-line interface."""
 import click
+import cli
 
+@cli.command()  # @cli, not @click!
+def sync():
+    click.echo('Syncing')
 
 @click.command()
 @click.version_option()
