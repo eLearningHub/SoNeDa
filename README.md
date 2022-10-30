@@ -31,7 +31,7 @@
 
 ## Installation
 
-You can install _Social networks cli_ via [pip] from [PyPI]:
+You can install _Social networks cli_ via [pip] from [PyPI]:https://github.com/CruiseDevice/twweet-cli
 
 ```console
 $ pip install sncli
@@ -39,7 +39,7 @@ $ pip install sncli
 
 ## Usage
 
-Please see the [Command-line Reference] for details.
+Please see the [Command-line Reference] for details.https://github.com/CruiseDevice/twweet-cli
 
 ## Contributing
 
@@ -71,3 +71,10 @@ This project was generated from [@cjolowicz]'s [Hypermodern Python Cookiecutter]
 [license]: https://github.com/bsamadi/sncli/blob/main/LICENSE
 [contributor guide]: https://github.com/bsamadi/sncli/blob/main/CONTRIBUTING.md
 [command-line reference]: https://sncli.readthedocs.io/en/latest/usage.html
+https://github.com/CruiseDevice/twweet-cli
+
+## References
+
+* [twweet-cli](https://github.com/CruiseDevice/twweet-cli)
+* [t](https://github.com/sferik/t)
+* [rainbowstream](https://github.com/orakaro/rainbowstream)
