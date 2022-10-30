@@ -78,3 +78,4 @@ https://github.com/CruiseDevice/twweet-cli
 * [twweet-cli](https://github.com/CruiseDevice/twweet-cli)
 * [t](https://github.com/sferik/t)
 * [rainbowstream](https://github.com/orakaro/rainbowstream)
+* [Cookiecutter hypermodern: quick start](https://cookiecutter-hypermodern-python.readthedocs.io/en/2022.6.3.post1/quickstart.html)
