@@ -6,7 +6,7 @@ import click
 def twitter():
     pass
 
-@twitter.command()  # @cli, not @click!
+@twitter.command()
 def configure():
     click.echo('Configuring')
 
@@ -16,6 +16,7 @@ twitter.add_command(configure)
 @click.version_option()
 def main() -> None:
     """Social networks cli."""
+    twitter()
 
 if __name__ == "__main__":
     main(prog_name="sncli")  # pragma: no cover
