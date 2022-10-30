@@ -1,6 +1,6 @@
 """Command-line interface."""
 import click
-import cli
+import cli.app
 
 @cli.command()  # @cli, not @click!
 def sync():
