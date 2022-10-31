@@ -85,3 +85,5 @@ https://github.com/CruiseDevice/twweet-cli
 * [Fake News Detection through Ego Network Analysis](https://github.com/briansrebrenik/Final_Project)
 * [Social Network Analysis - From Graph Theory to Applications - Dima Goldenberg](https://youtu.be/px7ff2_Jeqw)
 * [Introduction to Social Network Analysis](https://www.youtube.com/watch?v=IiUDKDxScxI)
+* [A gentle introduction to network science: Dr Renaud Lambiotte, University of Oxford](https://youtu.be/L6CqqlILBCI)
+* [Social Network Analysis](https://youtu.be/ZeFK9gUGNjc)
