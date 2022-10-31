@@ -83,3 +83,4 @@ https://github.com/CruiseDevice/twweet-cli
 * [Creation of a Tweet](https://oauth-playground.glitch.me/?id=createTweet)
 * [Twitter graph visualization](https://github.com/JohnCoogan/twitter-graph-visualization)
 * [Fake News Detection through Ego Network Analysis](https://github.com/briansrebrenik/Final_Project)
+* [Social Network Analysis - From Graph Theory to Applications - Dima Goldenberg](https://youtu.be/px7ff2_Jeqw)
