@@ -81,3 +81,4 @@ https://github.com/CruiseDevice/twweet-cli
 * [Cookiecutter hypermodern: quick start](https://cookiecutter-hypermodern-python.readthedocs.io/en/2022.6.3.post1/quickstart.html)
 * [networkx-tutorial](https://github.com/sarguido/networkx-tutorial)
 * [Creation of a Tweet](https://oauth-playground.glitch.me/?id=createTweet)
+* [Twitter graph visualization](https://github.com/JohnCoogan/twitter-graph-visualization)
