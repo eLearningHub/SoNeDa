@@ -82,3 +82,4 @@ https://github.com/CruiseDevice/twweet-cli
 * [networkx-tutorial](https://github.com/sarguido/networkx-tutorial)
 * [Creation of a Tweet](https://oauth-playground.glitch.me/?id=createTweet)
 * [Twitter graph visualization](https://github.com/JohnCoogan/twitter-graph-visualization)
+* [Fake News Detection through Ego Network Analysis](https://github.com/briansrebrenik/Final_Project)
