@@ -1,6 +1,7 @@
 import click
 import os
 
+from sncli.functions.twitter import get_twitter_credentials_file
 
 @click.group()
 def twitter():
@@ -17,7 +18,7 @@ def twitter():
 @click.option("+overwrite/-overwrite", type=bool, help="Overwrite existing credentials")
 def configure(profile,consumer_key, consumer_secret, access_token_key, access_token_secret, bearer_token, overwrite):
     click.echo("Configuring the Twitter account")
-    dot_twitter = os.environ.get("HOME")+"/.sncli/.twitter"
+    dot_twitter = get_twitter_credentials_file()
     if not os.path.exists(dot_twitter) or overwrite:
         os.system("mkdir -p ~/.sncli")
         f = open(dot_twitter, "wt")
