@@ -23,7 +23,9 @@
 
 ## Features
 
-- TODO
+### Commands
+
+- `sncli twitter config`
 
 ## Requirements
 

@@ -16,7 +16,7 @@ def twitter():
 @click.option("--access-token-secret", type=str, help="API secret key", envvar="TWITTER_ACCESS_TOKEN_SECRET")
 @click.option("--bearer-token", type=str, help="API secret key", envvar="TWITTER_BEARER_TOKEN")
 @click.option("+overwrite/-overwrite", type=bool, help="Overwrite existing credentials")
-def configure(profile,consumer_key, consumer_secret, access_token_key, access_token_secret, bearer_token, overwrite):
+def config(profile,consumer_key, consumer_secret, access_token_key, access_token_secret, bearer_token, overwrite):
     click.echo("Configuring the Twitter account")
     dot_twitter = get_twitter_credentials_file()
     if not os.path.exists(dot_twitter) or overwrite:
