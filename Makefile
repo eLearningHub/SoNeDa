@@ -7,7 +7,7 @@ conda-env-remove:
 requirements:
 	pip install -r requirements.txt
 
-poetry:
+install-poetry:
 	wget https://raw.githubusercontent.com/python-poetry/poetry/master/install-poetry.py
 	python install-poetry.py
 	rm install-poetry.py
