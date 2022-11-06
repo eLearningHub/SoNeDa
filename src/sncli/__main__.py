@@ -1,10 +1,9 @@
 import sys
 import logging
 import click
-from .services.twitter import twitter
+from sncli.services.twitter import twitter
 
-logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
-logger = logging.getLogger('SNCLI')
+logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 
 @click.group()
 def cli():
