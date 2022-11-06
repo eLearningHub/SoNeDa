@@ -1,7 +1,7 @@
 import logging
 import logging.config
 
-#logging.config.fileConfig('logging.conf')
+logging.config.fileConfig('sncli/logging.conf')
 
 # create logger
-logger = logging.getLogger()
+logger = logging.getLogger('simpleExample')
