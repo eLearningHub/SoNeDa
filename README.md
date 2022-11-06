@@ -89,3 +89,4 @@ https://github.com/CruiseDevice/twweet-cli
 * [Introduction to Social Network Analysis](https://www.youtube.com/watch?v=IiUDKDxScxI)
 * [A gentle introduction to network science: Dr Renaud Lambiotte, University of Oxford](https://youtu.be/L6CqqlILBCI)
 * [Social Network Analysis](https://youtu.be/ZeFK9gUGNjc)
+* [pyflycli](https://github.com/k-zehnder/pyflycli)
