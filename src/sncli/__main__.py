@@ -1,12 +1,7 @@
-import sys
-import click
-from sncli.services.twitter import twitter
+from sncli.cli import app
+from sncli.services.twitter import twitter_app
 
-@click.group()
-def cli():
-    pass
+app.add_typer(twitter_app, name="twitter")
 
-cli.add_command(twitter)
-
-if __name__ == '__main__':
-    cli()
+if __name__ == "__main__":
+    app()

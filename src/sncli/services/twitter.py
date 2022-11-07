@@ -1,31 +1,25 @@
-import logging
-import click
 import os
+import typer
+from typing import Optional
 
-from sncli.logging_conf import logger
+from sncli.cli import console
 from sncli.functions.twitter import get_twitter_credentials_file
 
+twitter_app = typer.Typer()
 
-@click.group()
-def twitter():
-    pass
-
-
-@twitter.command()
-@click.option("--profile", type=str, help="Profile name", default=lambda: os.environ.get("TWITTER_PROFILE", "default"))
-@click.option("--consumer-key", type=str, help="Access token", envvar="TWITTER_CONSUMER_KEY")
-@click.option("--consumer-secret", type=str, help="Access token secret", envvar="TWITTER_CONSUMER_SECRET")
-@click.option("--access-token-key", type=str, help="API key", envvar="TWITTER_ACCESS_TOKEN_KEY")
-@click.option("--access-token-secret", type=str, help="API secret key", envvar="TWITTER_ACCESS_TOKEN_SECRET")
-@click.option("--bearer-token", type=str, help="API secret key", envvar="TWITTER_BEARER_TOKEN")
-@click.option("+overwrite/-overwrite", type=bool, help="Overwrite existing credentials")
-def config(profile, consumer_key, consumer_secret, access_token_key, access_token_secret, bearer_token, overwrite):
-    click.echo("Configuring a Twitter account")
+@twitter_app.command()
+def config(profile: Optional(str) = typer.Argument("default", envvar="TWITTER_PROFILE", help="Profile name"),
+           consumer_key: Optional(str) = typer.Argument(None, envvar="TWITTER_CONSUMER_KEY", help="Access token"),
+           consumer_secret: Optional(str) = typer.Argument(None, envvar="TWITTER_CONSUMER_SECRET", help="Access token secret"),
+           access_token_key: Optional(str) = typer.Argument(None, envvar="TWITTER_ACCESS_TOKEN_KEY", help="API key"),
+           access_token_secret: Optional(str) = typer.Argument(None, envvar="TWITTER_ACCESS_TOKEN_SECRET", help="API secret key"),
+           bearer_token: Optional(str) = typer.Argument(None, envvar="TWITTER_BEARER_TOKEN", help="bearer token"),
+           overwrite: bool = typer.Option(True, "--overwrite/--append", help="Overwrite existing credentials")):
+    console.print("Configuring a Twitter account")
     dot_twitter = get_twitter_credentials_file()
     if not os.path.exists(dot_twitter) or overwrite:
         os.system("mkdir -p ~/.sncli")
         f = open(dot_twitter, "wt")
-        logging.debug(f"Profile: {profile}")
         f.write(f"[{profile}]\n")
         f.write(f"consumer_key=\"{consumer_key}\"\n")
         f.write(f"consumer_secret=\"{consumer_secret}\"\n")
