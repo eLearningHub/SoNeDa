@@ -8,12 +8,12 @@ from sncli.functions.twitter import get_twitter_credentials_file
 twitter_app = typer.Typer()
 
 @twitter_app.command()
-def config(profile: Optional(str) = typer.Argument("default", envvar="TWITTER_PROFILE", help="Profile name"),
-           consumer_key: Optional(str) = typer.Argument(None, envvar="TWITTER_CONSUMER_KEY", help="Access token"),
-           consumer_secret: Optional(str) = typer.Argument(None, envvar="TWITTER_CONSUMER_SECRET", help="Access token secret"),
-           access_token_key: Optional(str) = typer.Argument(None, envvar="TWITTER_ACCESS_TOKEN_KEY", help="API key"),
-           access_token_secret: Optional(str) = typer.Argument(None, envvar="TWITTER_ACCESS_TOKEN_SECRET", help="API secret key"),
-           bearer_token: Optional(str) = typer.Argument(None, envvar="TWITTER_BEARER_TOKEN", help="bearer token"),
+def config(profile: Optional[str] = typer.Argument("default", envvar="TWITTER_PROFILE", help="Profile name"),
+           consumer_key: Optional[str] = typer.Argument(None, envvar="TWITTER_CONSUMER_KEY", help="Access token"),
+           consumer_secret: Optional[str] = typer.Argument(None, envvar="TWITTER_CONSUMER_SECRET", help="Access token secret"),
+           access_token_key: Optional[str] = typer.Argument(None, envvar="TWITTER_ACCESS_TOKEN_KEY", help="API key"),
+           access_token_secret: Optional[str] = typer.Argument(None, envvar="TWITTER_ACCESS_TOKEN_SECRET", help="API secret key"),
+           bearer_token: Optional[str] = typer.Argument(None, envvar="TWITTER_BEARER_TOKEN", help="bearer token"),
            overwrite: bool = typer.Option(True, "--overwrite/--append", help="Overwrite existing credentials")):
     console.print("Configuring a Twitter account")
     dot_twitter = get_twitter_credentials_file()
