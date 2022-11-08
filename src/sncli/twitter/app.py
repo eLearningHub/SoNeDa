@@ -3,7 +3,7 @@ import typer
 from typing import Optional
 
 from sncli.cli import console
-from sncli.functions.twitter import get_twitter_credentials_file
+from sncli.twitter.utils import get_twitter_credentials_file
 
 twitter_app = typer.Typer()
 
