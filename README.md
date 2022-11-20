@@ -113,3 +113,7 @@ https://github.com/CruiseDevice/twweet-cli
 ### PowerShell
 
 * BluebirdPS a Twitter Automation Client for PowerShell 7. Tweet, Retweet, send Direct Messages, manage lists, and more
+
+### Oauth 2
+
+* [requests-oauthlib](https://requests-oauthlib.readthedocs.io/en/latest/index.html)
