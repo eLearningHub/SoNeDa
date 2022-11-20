@@ -94,17 +94,17 @@ https://github.com/CruiseDevice/twweet-cli
 
 ### Python libraries
 
-* tweepy Twitter for Python
+* tweepy: Twitter for Python
 * [twarc2](https://twarc-project.readthedocs.io/en/latest/twarc2_en_us/)
-* python-twitter a simple Python wrapper for Twitter API v2
-* TwitterAPI minimal Python wrapper for Twitter's APIs
-* twitterati Wrapper for Twitter Developer API V2
-* twitter-stream.py a Python API client for Twitter API v2
-* twitivity Account Activity API client library for Python
-* PyTweet a synchronous Python wrapper for the Twitter API
-* tweetkit a Python Client for the Twitter API for Academic Research
-* tweetple a wrapper to stream information from the Full-Archive Search Endpoint, for Academic Research
-* 2wttr get Tweets from the v2 Twitter API, for Academic Research
+* python-twitter: a simple Python wrapper for Twitter API v2
+* TwitterAPI: minimal Python wrapper for Twitter's APIs
+* twitterati: Wrapper for Twitter Developer API V2
+* twitter-stream.py: a Python API client for Twitter API v2
+* twitivity: Account Activity API client library for Python
+* PyTweet: a synchronous Python wrapper for the Twitter API
+* tweetkit: a Python Client for the Twitter API for Academic Research
+* tweetple: a wrapper to stream information from the Full-Archive Search Endpoint, for Academic Research
+* 2wttr: get Tweets from the v2 Twitter API, for Academic Research
 
 ### PowerShell
 
