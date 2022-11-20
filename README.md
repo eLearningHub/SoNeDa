@@ -92,6 +92,10 @@ https://github.com/CruiseDevice/twweet-cli
 * [Social Network Analysis](https://youtu.be/ZeFK9gUGNjc)
 * [pyflycli](https://github.com/k-zehnder/pyflycli)
 
+### Twitter
+
+* [Creating a Twitter bot with Python, OAuth 2.0, and v2 of the Twitter API](https://developer.twitter.com/en/docs/tutorials/creating-a-twitter-bot-with-python--oauth-2-0--and-v2-of-the-twi)
+
 ### Python libraries
 
 * tweepy: Twitter for Python
