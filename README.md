@@ -102,3 +102,7 @@ https://github.com/CruiseDevice/twweet-cli
 * tweetkit a Python Client for the Twitter API for Academic Research
 * tweetple a wrapper to stream information from the Full-Archive Search Endpoint, for Academic Research
 * 2wttr get Tweets from the v2 Twitter API, for Academic Research
+
+### PowerShell
+
+* BluebirdPS a Twitter Automation Client for PowerShell 7. Tweet, Retweet, send Direct Messages, manage lists, and more
