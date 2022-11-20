@@ -1,3 +1,7 @@
+import os
+import re
+import base64
+import hashlib
 import requests
 from requests_oauthlib import OAuth2Session
 
@@ -6,17 +10,17 @@ class TwitterAPIClient:
     def __init__(self):
         self.auth_url = "https://twitter.com/i/oauth2/authorize"
         self.token_url = "https://api.twitter.com/2/oauth2/token"
-        self.redirect_uri = "https://localhost/"
+        self.redirect_uri = "http://127.0.0.1:5000/oauth/callback"
         self.scops = ["tweet.read", "users.read", "tweet.write", "offline.access"]
 
         # Create a code verifier
         self.code_verifier = base64.urlsafe_b64encode(os.urandom(30)).decode("utf-8")
-        self.code_verifier = re.sub("[^a-zA-Z0-9]+", "", code_verifier)
+        self.code_verifier = re.sub("[^a-zA-Z0-9]+", "", self.code_verifier)
 
         # Create a code challenge
-        code_challenge = hashlib.sha256(code_verifier.encode("utf-8")).digest()
+        code_challenge = hashlib.sha256(self.code_verifier.encode("utf-8")).digest()
         code_challenge = base64.urlsafe_b64encode(code_challenge).decode("utf-8")
-        code_challenge = code_challenge.replace("=", "")
+        self.code_challenge = code_challenge.replace("=", "")
 
         try:
             token = self.load_saved_token()
