@@ -3,12 +3,21 @@ from requests_oauthlib import OAuth2Session
 
 class TwitterAPIClient:
 
-    AUTH_URL = "https://twitter.com/i/oauth2/authorize"
-    TOKEN_URL = "https://api.twitter.com/2/oauth2/token"
+    def __init__(self):
+        self.auth_url = "https://twitter.com/i/oauth2/authorize"
+        self.token_url = "https://api.twitter.com/2/oauth2/token"
+        self.redirect_uri = "https://localhost/"
+        self.scops = ["tweet.read", "users.read", "tweet.write", "offline.access"]
 
-    def __init__(self, app_id: str, app_secret: str):
-        self.app_id = app_id
-        self.app_secret = app_secret
+        # Create a code verifier
+        self.code_verifier = base64.urlsafe_b64encode(os.urandom(30)).decode("utf-8")
+        self.code_verifier = re.sub("[^a-zA-Z0-9]+", "", code_verifier)
+
+        # Create a code challenge
+        code_challenge = hashlib.sha256(code_verifier.encode("utf-8")).digest()
+        code_challenge = base64.urlsafe_b64encode(code_challenge).decode("utf-8")
+        code_challenge = code_challenge.replace("=", "")
+
         try:
             token = self.load_saved_token()
         except KeyError:
@@ -17,13 +26,7 @@ class TwitterAPIClient:
         self.client = self.create_client_for_token(token)
 
     def create_client_for_token(self, token: dict) -> OAuth2Session:
-        return OAuth2Session(
-            self.app_id,
-            token=token,
-            auto_refresh_url=self.REFRESH_URL,
-            auto_refresh_kwargs={},
-            token_updater=self.token_saver,
-        )
+        return OAuth2Session(self.client_id, redirect_uri=self.redirect_uri, scope=self.scopes)
 
     def fernet(self, key: str) -> Fernet:
         key = key + "=" * (len(key) % 4)
