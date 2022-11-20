@@ -78,7 +78,6 @@ https://github.com/CruiseDevice/twweet-cli
 ## References
 
 * [twurl](https://github.com/twitter/twurl)
-* [twarc2](https://twarc-project.readthedocs.io/en/latest/twarc2_en_us/)
 * [twweet-cli](https://github.com/CruiseDevice/twweet-cli)
 * [t](https://github.com/sferik/t)
 * [rainbowstream](https://github.com/orakaro/rainbowstream)
@@ -92,7 +91,11 @@ https://github.com/CruiseDevice/twweet-cli
 * [A gentle introduction to network science: Dr Renaud Lambiotte, University of Oxford](https://youtu.be/L6CqqlILBCI)
 * [Social Network Analysis](https://youtu.be/ZeFK9gUGNjc)
 * [pyflycli](https://github.com/k-zehnder/pyflycli)
+
+### Python libraries
+
 * tweepy Twitter for Python
+* [twarc2](https://twarc-project.readthedocs.io/en/latest/twarc2_en_us/)
 * python-twitter a simple Python wrapper for Twitter API v2
 * TwitterAPI minimal Python wrapper for Twitter's APIs
 * twitterati Wrapper for Twitter Developer API V2
