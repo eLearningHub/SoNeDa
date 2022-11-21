@@ -21,6 +21,7 @@ class TwitterAPIClient:
 
     API_ROOT = os.environ.get("TWITTER_API_ROOT", "https://api.twitter.com")
     AUTH_URL = "https://twitter.com/i/oauth2/authorize"
+    REFRESH_URL = f"{API_ROOT}/oauth2/token-refresh"
     TOKEN_URL = f"{API_ROOT}/oauth2/token"
     REDIRECT_URI = "http://127.0.0.1:5000/oauth/callback"
     API_ROOT = os.environ.get("TWITTER_API_ROOT", "https://api.twitter.com")
@@ -57,8 +58,8 @@ class TwitterAPIClient:
 
 
     def fernet(self, key: str) -> Fernet:
-        key = key + "=" * (len(key) % 4)
-        _key = base64.urlsafe_b64encode(base64.urlsafe_b64decode(key))
+        _key = bytes(key[0:32],'utf-8')
+        _key = base64.urlsafe_b64encode(_key)
         return Fernet(_key)
 
     def encrypt(self, data: str) -> bytes:
@@ -101,6 +102,8 @@ class TwitterAPIClient:
     def create_client_for_token(self, token: dict) -> OAuth2Session:
         return OAuth2Session(
             self.consumer_key,
+            redirect_uri=self.REDIRECT_URI,
+            scope=self.scopes,
             token=token,
             auto_refresh_url=self.REFRESH_URL,
             auto_refresh_kwargs={},
