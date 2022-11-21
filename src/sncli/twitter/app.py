@@ -3,7 +3,7 @@ import typer
 from typing import Optional
 
 from sncli.cli import console
-from sncli.twitter.utils import get_twitter_credentials_file
+from sncli.twitter.client import CREDENTIALS_FILE
 
 twitter_app = typer.Typer()
 
@@ -16,7 +16,7 @@ def config(profile: Optional[str] = typer.Argument("default", envvar="TWITTER_PR
            bearer_token: Optional[str] = typer.Argument(None, envvar="TWITTER_BEARER_TOKEN", help="bearer token"),
            overwrite: bool = typer.Option(True, "--overwrite/--append", help="Overwrite existing credentials")):
     console.print("Configuring a Twitter account")
-    dot_twitter = get_twitter_credentials_file()
+    dot_twitter = CREDENTIALS_FILE
     if not os.path.exists(dot_twitter) or overwrite:
         os.system("mkdir -p ~/.sncli")
         f = open(dot_twitter, "wt")
