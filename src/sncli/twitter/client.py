@@ -47,7 +47,6 @@ class TwitterAPIClient:
         code_challenge = base64.urlsafe_b64encode(code_challenge).decode("utf-8")
         self.code_challenge = code_challenge.replace("=", "")
 
-        print(self.KEY_DB)
         if os.path.exists(self.KEY_DB):
             token = self.load_saved_token()
         else:
@@ -70,7 +69,6 @@ class TwitterAPIClient:
 
     def token_saver(self, token: dict) -> None:
         data = json.dumps(token)
-        print(data)
         _t = self.encrypt(data)
         with dbm.open(self.KEY_DB, "c") as db:
             db[self.consumer_key] = _t
