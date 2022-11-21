@@ -2,16 +2,27 @@ import os
 import re
 import base64
 import hashlib
+import oauthlib
 import requests
 from requests_oauthlib import OAuth2Session
+from oauthlib.oauth2 import BackendApplicationClient
+from oauthlib.oauth2.rfc6749.errors import MissingTokenError
+
+from sncli.twitter.utils import twitter_credentials
+from sncli.twitter.exceptions import MissingToken
 
 class TwitterAPIClient:
 
-    def __init__(self):
-        self.auth_url = "https://twitter.com/i/oauth2/authorize"
-        self.token_url = "https://api.twitter.com/2/oauth2/token"
-        self.redirect_uri = "http://127.0.0.1:5000/oauth/callback"
+    API_ROOT = os.environ.get("TWITTER_API_ROOT", "https://api.twitter.com")
+    AUTH_URL = "https://twitter.com/i/oauth2/authorize"
+    TOKEN_URL = f"{API_ROOT}/2/oauth2/token"
+    REDIRECT_URI = "http://127.0.0.1:5000/oauth/callback"
+
+    def __init__(self, profile: str = None):
         self.scops = ["tweet.read", "users.read", "tweet.write", "offline.access"]
+
+        credentials = twitter_credentials(profile)
+        self.consumer_key = credentials['consumer_key']
 
         # Create a code verifier
         self.code_verifier = base64.urlsafe_b64encode(os.urandom(30)).decode("utf-8")
@@ -22,15 +33,7 @@ class TwitterAPIClient:
         code_challenge = base64.urlsafe_b64encode(code_challenge).decode("utf-8")
         self.code_challenge = code_challenge.replace("=", "")
 
-        try:
-            token = self.load_saved_token()
-        except KeyError:
-            token = self.fetch_api_token()
-            self.token_saver(token)
-        self.client = self.create_client_for_token(token)
-
-    def create_client_for_token(self, token: dict) -> OAuth2Session:
-        return OAuth2Session(self.client_id, redirect_uri=self.redirect_uri, scope=self.scopes)
+        self.client = OAuth2Session(self.client_id, redirect_uri=self.REDIRECT_URI, scope=self.scopes)
 
     def fernet(self, key: str) -> Fernet:
         key = key + "=" * (len(key) % 4)
@@ -98,15 +101,13 @@ class TwitterAPIClient:
             return self.client.get(url)
 
     def post(self, path:str, data:dict) -> requests.Response:
-        url = f"{self.TWITTER_API_ROOT}{path}"
-        logger.debug(f"POSTing URL {url}")
-        try:
-            resp = self.client.post(url, json=data)
-            return resp
-        except (oauthlib.oauth2.rfc6749.errors.MissingTokenError, MissingToken):
-            self.reset()
-            resp = self.client.post(url, json=data)
-            return resp
+        url = self.api_url+path
+        #logger.debug(f"POSTing URL {url}")
+        headers={
+            "Authorization": "Bearer {}".format(token["access_token"]),
+            "Content-Type": "application/json",
+        }
+        return self.client.post(url, json=data, headers=headers)
 
     def put(self, path:str, data:dict) -> requests.Response:
         url = f"{self.TWITTER_API_ROOT}{path}"
