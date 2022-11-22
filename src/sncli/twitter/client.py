@@ -98,9 +98,9 @@ class TwitterAPIClient:
         return token
 
     def create_client_for_token(self, token: dict) -> OAuth2Session:
+        backend = BackendApplicationClient(client_id=self.consumer_key)
         return OAuth2Session(
-            self.consumer_key,
-            redirect_uri=self.REDIRECT_URI,
+            client=backend,
             scope=self.scopes,
             token=token,
             auto_refresh_url=self.REFRESH_URL,
