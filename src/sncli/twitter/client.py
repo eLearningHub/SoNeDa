@@ -122,7 +122,7 @@ class TwitterAPIClient:
     ### Dispatch methods ###
 
     def get(self, path:str, **query) -> requests.Response:
-        url = f"{self.TWITTER_API_ROOT}{path}"
+        url = f"{self.API_ROOT}{path}"
         if query:
             querystr = urllib.parse.urlencode(query)
             url = f"{url}?{querystr}"
@@ -134,12 +134,12 @@ class TwitterAPIClient:
             return self.client.get(url)
 
     def post(self, path:str, data:dict) -> requests.Response:
-        url = self.api_url+path
+        url = f"{self.API_ROOT}{path}"
         #logger.debug(f"POSTing URL {url}")
         return self.client.post(url, json=data)
 
     def put(self, path:str, data:dict) -> requests.Response:
-        url = f"{self.TWITTER_API_ROOT}{path}"
+        url = f"{self.API_ROOT}{path}"
         #logger.debug(f"PUTing URL {url}")
         try:
             resp = self.client.put(url, json=data)
