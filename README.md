@@ -122,6 +122,7 @@ https://github.com/CruiseDevice/twweet-cli
 ### REST API
 
 * [Python API wrappers](https://github.com/realpython/list-of-python-api-wrappers)
+* [First API example](https://github.com/scott2b/api-first-example)
 
 ### Tests
 
