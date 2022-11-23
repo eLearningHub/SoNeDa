@@ -121,3 +121,7 @@ https://github.com/CruiseDevice/twweet-cli
 ### REST API
 
 * [Python API wrappers](https://github.com/realpython/list-of-python-api-wrappers)
+
+### Tests
+
+* [karate](https://github.com/karatelabs/karate)
