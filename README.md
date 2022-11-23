@@ -25,7 +25,8 @@
 
 ### Commands
 
-- `sncli twitter config`
+- `sncli twitter config`: Store Twitter API credentials
+- `sncli twitter tweets`: Tweet lookup
 
 ## Requirements
 
