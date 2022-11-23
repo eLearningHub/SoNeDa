@@ -3,7 +3,7 @@ import typer
 from typing import Optional
 
 from sncli.cli import console
-from sncli.twitter.client import CREDENTIALS_FILE
+from sncli.twitter.client import CREDENTIALS_FILE, TwitterAPIClient
 
 twitter_app = typer.Typer()
 
@@ -27,3 +27,11 @@ def config(profile: Optional[str] = typer.Argument("default", envvar="TWITTER_PR
         f.write(f"access_token_secret=\"{access_token_secret}\"\n")
         f.write(f"bearer_token=\"{bearer_token}\"\n")
         f.close()
+
+
+@twitter_app.command()
+def tweets(profile: Optional[str] = typer.Argument("default", envvar="TWITTER_PROFILE", help="Profile name"),
+           id: Optional[str] = typer.Argument(help="Required. Enter a single Tweet ID.")):
+    twitter = TwitterAPIClient(profile)
+    tweet = twitter.get("/2/tweets")
+    
