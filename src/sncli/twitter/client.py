@@ -8,6 +8,7 @@ import urllib
 import hashlib
 import oauthlib
 import requests
+from typing import Optional
 from cryptography.fernet import Fernet
 from requests_oauthlib import OAuth2Session
 from oauthlib.oauth2 import BackendApplicationClient
@@ -28,7 +29,7 @@ class TwitterAPIClient:
     KEY_DB = os.path.expanduser(os.getenv("TWITTER_KEY_DB", "~/.sncli/.twitter.key"))
     scopes = ["tweet.read", "users.read", "tweet.write", "offline.access"]
 
-    def __init__(self, profile: str = None):
+    def __init__(self, profile: Optional(str) = None):
 
         profiles = toml.load(CREDENTIALS_FILE)
         if profile is None:
