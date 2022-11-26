@@ -114,6 +114,7 @@ https://github.com/CruiseDevice/twweet-cli
 ### Postman
 
 * [Postpy2](https://pypi.org/project/postpy2/)
+* [postpython](https://github.com/k3rn3l-p4n1c/postpython)
 * [newman](https://github.com/postmanlabs/newman)
 * [postman-code-generators](https://github.com/postmanlabs/postman-code-generators)
 * [curlx](https://github.com/shivkanthb/curlx)
