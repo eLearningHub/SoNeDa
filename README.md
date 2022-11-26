@@ -111,6 +111,16 @@ https://github.com/CruiseDevice/twweet-cli
 * tweetple: a wrapper to stream information from the Full-Archive Search Endpoint, for Academic Research
 * 2wttr: get Tweets from the v2 Twitter API, for Academic Research
 
+### Postman
+
+* [Postpy2](https://pypi.org/project/postpy2/)
+* [newman](https://github.com/postmanlabs/newman)
+* [postman-code-generators](https://github.com/postmanlabs/postman-code-generators)
+* [curlx](https://github.com/shivkanthb/curlx)
+* [API-Flow](https://github.com/luckymarmot/API-Flow)
+* [flask2postman](https://github.com/numberly/flask2postman)
+* [postman-twitter-api](https://github.com/twitterdev/postman-twitter-api)
+
 ### PowerShell
 
 * BluebirdPS a Twitter Automation Client for PowerShell 7. Tweet, Retweet, send Direct Messages, manage lists, and more
