@@ -29,7 +29,7 @@ class TwitterAPIClient:
     KEY_DB = os.path.expanduser(os.getenv("TWITTER_KEY_DB", "~/.sncli/.twitter.key"))
     scopes = ["tweet.read", "users.read", "tweet.write", "offline.access"]
 
-    def __init__(self, profile: Optional(str) = None):
+    def __init__(self, profile: Optional[str] = None):
 
         profiles = toml.load(CREDENTIALS_FILE)
         if profile is None:
@@ -127,6 +127,7 @@ class TwitterAPIClient:
         if query:
             querystr = urllib.parse.urlencode(query)
             url = f"{url}?{querystr}"
+            print(querystr)
         #logger.debug(f"GETing URL {url}")
         try:
             return self.client.get(url)
