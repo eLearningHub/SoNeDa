@@ -127,7 +127,6 @@ class TwitterAPIClient:
         if query:
             querystr = urllib.parse.urlencode(query)
             url = f"{url}?{querystr}"
-            print(querystr)
         #logger.debug(f"GETing URL {url}")
         try:
             return self.client.get(url)
