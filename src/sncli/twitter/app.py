@@ -7,6 +7,7 @@ from sncli.twitter.client import CREDENTIALS_FILE, TwitterAPIClient
 
 twitter_app = typer.Typer()
 
+
 @twitter_app.command()
 def config(profile: Optional[str] = typer.Argument("default", envvar="TWITTER_PROFILE", help="Profile name"),
            consumer_key: Optional[str] = typer.Argument(None, envvar="TWITTER_CONSUMER_KEY", help="Access token"),
@@ -30,8 +31,8 @@ def config(profile: Optional[str] = typer.Argument("default", envvar="TWITTER_PR
 
 
 @twitter_app.command()
-def tweets(profile: Optional[str] = typer.Argument(None, envvar="TWITTER_PROFILE", help="Profile name"),
+def tweets(profile: Optional[str] = typer.Option(None, envvar="TWITTER_PROFILE", help="Profile name"),
            id: Optional[str] = typer.Argument(1460323737035677698, help="Required. Enter a single Tweet ID.")):
     twitter = TwitterAPIClient(profile)
-    tweet = twitter.get("/2/tweets",ids=id)
+    tweet = twitter.get("/2/tweets", ids=id)
     print(tweet.text)
