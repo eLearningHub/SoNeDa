@@ -98,6 +98,8 @@ https://github.com/CruiseDevice/twweet-cli
 * [Tools and libraries](https://developer.twitter.com/en/docs/twitter-api/tools-and-libraries/v2)
 * [Creating a Twitter bot with Python, OAuth 2.0, and v2 of the Twitter API](https://developer.twitter.com/en/docs/tutorials/creating-a-twitter-bot-with-python--oauth-2-0--and-v2-of-the-twi)
 * [Twitter API v2 data dictionary](https://developer.twitter.com/en/docs/twitter-api/data-dictionary/introduction)
+* [Python Twitter Search API](https://github.com/twitterdev/search-tweets-python)
+* [Twitter API v2 sample code](https://github.com/twitterdev/Twitter-API-v2-sample-code)
 
 ### Python libraries
 
