@@ -1,4 +1,4 @@
-# Social networks cli
+# Social Networks Data Analytics (SoNeDa)
 
 [![PyPI](https://img.shields.io/pypi/v/sncli.svg)][pypi_]
 [![Status](https://img.shields.io/pypi/status/sncli.svg)][status]
