@@ -1,23 +1,23 @@
 # Social Networks Data Analytics (SoNeDa)
 
-[![PyPI](https://img.shields.io/pypi/v/sncli.svg)][pypi_]
-[![Status](https://img.shields.io/pypi/status/sncli.svg)][status]
-[![Python Version](https://img.shields.io/pypi/pyversions/sncli)][python version]
-[![License](https://img.shields.io/pypi/l/sncli)][license]
+[![PyPI](https://img.shields.io/pypi/v/SoNeDa.svg)][pypi_]
+[![Status](https://img.shields.io/pypi/status/SoNeDa.svg)][status]
+[![Python Version](https://img.shields.io/pypi/pyversions/SoNeDa)][python version]
+[![License](https://img.shields.io/pypi/l/SoNeDa)][license]
 
-[![Read the documentation at https://sncli.readthedocs.io/](https://img.shields.io/readthedocs/sncli/latest.svg?label=Read%20the%20Docs)][read the docs]
-[![Tests](https://github.com/bsamadi/sncli/workflows/Tests/badge.svg)][tests]
-[![Codecov](https://codecov.io/gh/bsamadi/sncli/branch/main/graph/badge.svg)][codecov]
+[![Read the documentation at https://SoNeDa.readthedocs.io/](https://img.shields.io/readthedocs/SoNeDa/latest.svg?label=Read%20the%20Docs)][read the docs]
+[![Tests](https://github.com/eLearningHub/SoNeDa/workflows/Tests/badge.svg)][tests]
+[![Codecov](https://codecov.io/gh/eLearningHub/SoNeDa/branch/main/graph/badge.svg)][codecov]
 
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)][pre-commit]
 [![Black](https://img.shields.io/badge/code%20style-black-000000.svg)][black]
 
-[pypi_]: https://pypi.org/project/sncli/
-[status]: https://pypi.org/project/sncli/
-[python version]: https://pypi.org/project/sncli
-[read the docs]: https://sncli.readthedocs.io/
-[tests]: https://github.com/bsamadi/sncli/actions?workflow=Tests
-[codecov]: https://app.codecov.io/gh/bsamadi/sncli
+[pypi_]: https://pypi.org/project/SoNeDa/
+[status]: https://pypi.org/project/SoNeDa/
+[python version]: https://pypi.org/project/SoNeDa
+[read the docs]: https://SoNeDa.readthedocs.io/
+[tests]: https://github.com/eLearningHub/SoNeDa/actions?workflow=Tests
+[codecov]: https://app.codecov.io/gh/eLearningHub/SoNeDa
 [pre-commit]: https://github.com/pre-commit/pre-commit
 [black]: https://github.com/psf/black
 
@@ -25,8 +25,8 @@
 
 ### Commands
 
-- `sncli twitter config`: Store Twitter API credentials
-- `sncli twitter tweets`: Tweets lookup
+- `SoNeDa twitter config`: Store Twitter API credentials
+- `SoNeDa twitter tweets`: Tweets lookup
 
 ## Requirements
 
@@ -37,7 +37,7 @@
 You can install _Social networks cli_ via [pip] from [PyPI]:https://github.com/CruiseDevice/twweet-cli
 
 ```console
-$ pip install sncli
+$ pip install SoNeDa
 ```
 
 ## Usage
@@ -66,14 +66,14 @@ This project was generated from [@cjolowicz]'s [Hypermodern Python Cookiecutter]
 [@cjolowicz]: https://github.com/cjolowicz
 [pypi]: https://pypi.org/
 [hypermodern python cookiecutter]: https://github.com/cjolowicz/cookiecutter-hypermodern-python
-[file an issue]: https://github.com/bsamadi/sncli/issues
+[file an issue]: https://github.com/eLearningHub/SoNeDa/issues
 [pip]: https://pip.pypa.io/
 
 <!-- github-only -->
 
-[license]: https://github.com/bsamadi/sncli/blob/main/LICENSE
-[contributor guide]: https://github.com/bsamadi/sncli/blob/main/CONTRIBUTING.md
-[command-line reference]: https://sncli.readthedocs.io/en/latest/usage.html
+[license]: https://github.com/eLearningHub/SoNeDa/blob/main/LICENSE
+[contributor guide]: https://github.com/eLearningHub/SoNeDa/blob/main/CONTRIBUTING.md
+[command-line reference]: https://SoNeDa.readthedocs.io/en/latest/usage.html
 https://github.com/CruiseDevice/twweet-cli
 
 ## References

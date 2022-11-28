@@ -1,1 +1,1 @@
-"""Test suite for the sncli package."""
+"""Test suite for the SoNeDa package."""

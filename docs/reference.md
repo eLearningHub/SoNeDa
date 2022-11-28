@@ -1,8 +1,8 @@
 # Reference
 
-## sncli
+## SoNeDa
 
 ```{eval-rst}
-.. automodule:: sncli
+.. automodule:: SoNeDa
    :members:
 ```

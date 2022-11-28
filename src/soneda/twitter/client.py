@@ -14,9 +14,9 @@ from requests_oauthlib import OAuth2Session
 from oauthlib.oauth2 import BackendApplicationClient
 from oauthlib.oauth2.rfc6749.errors import MissingTokenError
 
-from sncli.twitter.exceptions import MissingToken
+from soneda.twitter.exceptions import MissingToken
 
-CREDENTIALS_FILE = os.path.expanduser(os.getenv("TWITTER_CREDENTIALS_FILE", "~/.sncli/.twitter"))
+CREDENTIALS_FILE = os.path.expanduser(os.getenv("TWITTER_CREDENTIALS_FILE", "~/.soneda/.twitter"))
 
 class TwitterAPIClient:
 
@@ -26,7 +26,7 @@ class TwitterAPIClient:
     TOKEN_URL = f"{API_ROOT}/oauth2/token"
     REDIRECT_URI = "http://127.0.0.1:5000/oauth/callback"
     API_ROOT = os.environ.get("TWITTER_API_ROOT", "https://api.twitter.com")
-    KEY_DB = os.path.expanduser(os.getenv("TWITTER_KEY_DB", "~/.sncli/.twitter.key"))
+    KEY_DB = os.path.expanduser(os.getenv("TWITTER_KEY_DB", "~/.soneda/.twitter.key"))
     scopes = ["tweet.read", "users.read", "tweet.write", "offline.access"]
 
     def __init__(self, profile: Optional[str] = None):

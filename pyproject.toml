@@ -1,19 +1,19 @@
 [tool.poetry]
-name = "sncli"
+name = "SoNeDa"
 version = "0.0.0"
-description = "Social networks cli"
+description = "Social Networks Data Analytics"
 authors = ["Behzad Samadi <behzad@mechatronics3d.com>"]
 license = "MIT"
 readme = "README.md"
-homepage = "https://github.com/bsamadi/sncli"
-repository = "https://github.com/bsamadi/sncli"
-documentation = "https://sncli.readthedocs.io"
+homepage = "https://github.com/eLearningHub/SoNeDa"
+repository = "https://github.com/eLearningHub/SoNeDa"
+documentation = "https://soneda.readthedocs.io"
 classifiers = [
     "Development Status :: 1 - Planning",
 ]
 
 [tool.poetry.urls]
-Changelog = "https://github.com/bsamadi/sncli/releases"
+Changelog = "https://github.com/eLearningHub/SoNeDa/releases"
 
 [tool.poetry.dependencies]
 python = "^3.7"
@@ -46,7 +46,7 @@ xdoctest = {extras = ["colors"], version = ">=0.15.10"}
 myst-parser = {version = ">=0.16.1"}
 
 [tool.poetry.scripts]
-sncli = "sncli.__main__:main"
+soneda = "soneda.__main__:main"
 
 [tool.coverage.paths]
 source = ["src", "*/site-packages"]
@@ -54,7 +54,7 @@ tests = ["tests", "*/tests"]
 
 [tool.coverage.run]
 branch = true
-source = ["sncli", "tests"]
+source = ["soneda", "tests"]
 
 [tool.coverage.report]
 show_missing = true

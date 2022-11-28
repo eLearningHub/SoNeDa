@@ -2,7 +2,7 @@ conda-env:
 	conda env create -f environment.yml
 
 conda-env-remove:
-	conda env remove --name sncli
+	conda env remove --name SoNeDa
 
 requirements:
 	pip install -r requirements.txt

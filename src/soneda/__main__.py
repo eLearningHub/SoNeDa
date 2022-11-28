@@ -1,5 +1,5 @@
-from sncli.cli import app
-from sncli.twitter.app import twitter_app
+from soneda.cli import app
+from soneda.twitter.app import twitter_app
 
 app.add_typer(twitter_app, name="twitter")
 

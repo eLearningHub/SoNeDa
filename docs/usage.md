@@ -1,7 +1,7 @@
 # Usage
 
 ```{eval-rst}
-.. click:: sncli.__main__:main
-    :prog: sncli
+.. click:: soneda.__main__:main
+    :prog: soneda
     :nested: full
 ```

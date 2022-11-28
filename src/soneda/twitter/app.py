@@ -2,8 +2,8 @@ import os
 import typer
 from typing import Optional
 
-from sncli.cli import console
-from sncli.twitter.client import CREDENTIALS_FILE, TwitterAPIClient
+from soneda.cli import console
+from soneda.twitter.client import CREDENTIALS_FILE, TwitterAPIClient
 
 twitter_app = typer.Typer()
 
@@ -19,7 +19,7 @@ def config(profile: Optional[str] = typer.Argument("default", envvar="TWITTER_PR
     console.print("Configuring a Twitter account")
     dot_twitter = CREDENTIALS_FILE
     if not os.path.exists(dot_twitter) or overwrite:
-        os.system("mkdir -p ~/.sncli")
+        os.system("mkdir -p ~/.soneda")
         f = open(dot_twitter, "wt")
         f.write(f"[{profile}]\n")
         f.write(f"consumer_key=\"{consumer_key}\"\n")

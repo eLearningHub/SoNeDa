@@ -12,9 +12,9 @@ Here is a list of important resources for contributors:
 - [Code of Conduct]
 
 [mit license]: https://opensource.org/licenses/MIT
-[source code]: https://github.com/bsamadi/sncli
-[documentation]: https://sncli.readthedocs.io/
-[issue tracker]: https://github.com/bsamadi/sncli/issues
+[source code]: https://github.com/eLearningHub/SoNeDa
+[documentation]: https://soneda.readthedocs.io/
+[issue tracker]: https://github.com/eLearningHub/SoNeDa/issues
 
 ## How to report a bug
 
@@ -54,7 +54,7 @@ or the command-line interface:
 
 ```console
 $ poetry run python
-$ poetry run sncli
+$ poetry run soneda
 ```
 
 [poetry]: https://python-poetry.org/
@@ -108,7 +108,7 @@ $ nox --session=pre-commit -- install
 It is recommended to open an issue before starting work on anything.
 This will allow a chance to talk it over with the owners and validate your approach.
 
-[pull request]: https://github.com/bsamadi/sncli/pulls
+[pull request]: https://github.com/eLearningHub/SoNeDa/pulls
 
 <!-- github-only -->
 

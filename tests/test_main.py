@@ -2,7 +2,7 @@
 import pytest
 from click.testing import CliRunner
 
-from sncli import __main__
+from soneda import __main__
 
 
 @pytest.fixture
