@@ -95,7 +95,9 @@ https://github.com/CruiseDevice/twweet-cli
 
 ### Twitter
 
+* [Tools and libraries](https://developer.twitter.com/en/docs/twitter-api/tools-and-libraries/v2)
 * [Creating a Twitter bot with Python, OAuth 2.0, and v2 of the Twitter API](https://developer.twitter.com/en/docs/tutorials/creating-a-twitter-bot-with-python--oauth-2-0--and-v2-of-the-twi)
+* [Twitter API v2 data dictionary](https://developer.twitter.com/en/docs/twitter-api/data-dictionary/introduction)
 
 ### Python libraries
 
@@ -122,6 +124,10 @@ https://github.com/CruiseDevice/twweet-cli
 * [flask2postman](https://github.com/numberly/flask2postman)
 * [postman-twitter-api](https://github.com/twitterdev/postman-twitter-api)
 
+### Code generation
+
+* [QuickType](https://quicktype.io/)
+
 ### PowerShell
 
 * BluebirdPS a Twitter Automation Client for PowerShell 7. Tweet, Retweet, send Direct Messages, manage lists, and more
@@ -134,7 +140,12 @@ https://github.com/CruiseDevice/twweet-cli
 
 * [Python API wrappers](https://github.com/realpython/list-of-python-api-wrappers)
 * [First API example](https://github.com/scott2b/api-first-example)
+* [Python JSON REST API wrapper library: a How-To in 15 simple steps](https://www.pretzellogix.net/2021/12/08/how-to-write-a-python3-sdk-library-module-for-a-json-rest-api/)
 
 ### Tests
 
 * [karate](https://github.com/karatelabs/karate)
+
+### Organizations
+
+* [DocNow](http://www.docnow.io/)
