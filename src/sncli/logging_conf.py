@@ -5,4 +5,4 @@ logging.config.fileConfig('sncli/logging.conf')
 logging.basicConfig(level=logging.INFO)
 
 # create logger
-logger = logging.getLogger('simple')
+logger = logging.getLogger('sncli')
