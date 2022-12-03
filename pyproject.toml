@@ -9,7 +9,7 @@ homepage = "https://github.com/eLearningHub/SoNeDa"
 repository = "https://github.com/eLearningHub/SoNeDa"
 documentation = "https://soneda.readthedocs.io"
 classifiers = [
-    "Development Status :: 1 - Planning",
+    "Development Status :: 2 - Pre-Alpha",
 ]
 
 [tool.poetry.urls]

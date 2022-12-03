@@ -1,8 +1,8 @@
 # Reference
 
-## SoNeDa
+## soneda
 
 ```{eval-rst}
-.. automodule:: SoNeDa
+.. automodule:: soneda
    :members:
 ```

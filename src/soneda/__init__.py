@@ -1,1 +1,1 @@
-"""Social networks cli."""
+"""SoNeDa."""

@@ -1,0 +1,14 @@
+{
+  "_output_dir": "/home/behzad/workspaces/sandbox",
+  "_template": "gh:cjolowicz/cookiecutter-hypermodern-python",
+  "author": "Behzad Samadi",
+  "copyright_year": "2022",
+  "development_status": "Development Status :: 2 - Pre-Alpha",
+  "email": "behzad@mechatronics3d.com",
+  "friendly_name": "SoNeDa",
+  "github_user": "bsamadi",
+  "license": "MIT",
+  "package_name": "soneda",
+  "project_name": "soneda",
+  "version": "0.0.0"
+}
