@@ -50,6 +50,7 @@ Contributions are very welcome.
 To learn more, see the [Contributor Guide].
 
 - [x] pre-commit
+- [x] safety
 
 ## License
 
