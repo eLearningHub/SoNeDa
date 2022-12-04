@@ -40,8 +40,10 @@ def config(
     console.print("Configuring a Twitter account")
     dot_twitter = CREDENTIALS_FILE
     if not os.path.exists(dot_twitter) or overwrite:
-        os.system("mkdir -p ~/.soneda")
-        f = open(dot_twitter, "wt")
+        if not os.path.exists("~/.soneda"):
+            os.makedirs(os.path.expanduser('~/.soneda'))
+
+        f = open(dot_twitter, "w")
         f.write(f"[{profile}]\n")
         f.write(f'consumer_key="{consumer_key}"\n')
         f.write(f'consumer_secret="{consumer_secret}"\n')
@@ -60,7 +62,7 @@ def tweets(
         1460323737035677698, help="Required. Enter a single Tweet ID."
     ),
 ):
-    """"Tweets lookup."""
+    """Tweets lookup."""
     twitter = TwitterAPIClient(profile)
     tweet = twitter.get("/2/tweets", ids=ids)
     print(tweet.text)
