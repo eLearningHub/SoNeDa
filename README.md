@@ -37,7 +37,7 @@
 You can install _Social networks cli_ via [pip] from [PyPI]:https://github.com/CruiseDevice/twweet-cli
 
 ```console
-$ pip install SoNeDa
+$ pip install soneda
 ```
 
 ## Usage
@@ -48,6 +48,8 @@ Please see the [Command-line Reference] for details.https://github.com/CruiseDev
 
 Contributions are very welcome.
 To learn more, see the [Contributor Guide].
+
+- [x] pre-commit
 
 ## License
 
