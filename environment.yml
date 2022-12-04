@@ -5,4 +5,4 @@ channels:
 
 dependencies:
   - python=3.8.15
-  - poetry=1.1.12
+  - smmap=5.0.0
