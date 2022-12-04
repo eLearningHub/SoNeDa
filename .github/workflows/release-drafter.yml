@@ -1,4 +1,5 @@
 # .github/release-drafter.yml
+name: release-drafter
 categories:
   - title: ":boom: Breaking Changes"
     label: "breaking"
