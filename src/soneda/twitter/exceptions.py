@@ -1,17 +1,25 @@
 """Exceptions."""
 
 
-class InvalidRequest(Exception):
+class InvalidRequestError(Exception):
+    """InvalidRequest."""
+
     ...
 
 
-class Unauthorized(Exception):
+class UnauthorizedError(Exception):
+    """Unauthorized."""
+
     ...
 
 
-class MissingToken(Exception):
+class MissingTokenError(Exception):
+    """MissingToken."""
+
     ...
 
 
-class MissingCredentials(Exception):
+class MissingCredentialsError(Exception):
+    """MissingCredentials."""
+
     ...

@@ -9,15 +9,12 @@ import re
 import urllib
 from typing import Optional
 
-import oauthlib
 import requests
 import toml
 from cryptography.fernet import Fernet
 from oauthlib.oauth2 import BackendApplicationClient
 from oauthlib.oauth2.rfc6749.errors import MissingTokenError
 from requests_oauthlib import OAuth2Session
-
-from soneda.twitter.exceptions import MissingToken
 
 
 CREDENTIALS_FILE = os.path.expanduser(
@@ -98,7 +95,7 @@ class TwitterAPIClient:
                 _token = db[self.consumer_key]
             token = json.loads(self.decrypt(_token))
             return token
-        except MissingToken as e:
+        except MissingTokenError as e:
             raise KeyError from e
 
     def fetch_api_token(self) -> dict:
@@ -153,7 +150,7 @@ class TwitterAPIClient:
         # logger.debug(f"GETing URL {url}")
         try:
             return self.client.get(url)
-        except (oauthlib.oauth2.rfc6749.errors.MissingTokenError, MissingToken):
+        except MissingTokenError:
             self.reset()
             return self.client.get(url)
 
@@ -170,7 +167,7 @@ class TwitterAPIClient:
         try:
             resp = self.client.put(url, json=data)
             return resp
-        except (oauthlib.oauth2.rfc6749.errors.MissingTokenError, MissingToken):
+        except MissingTokenError:
             self.reset()
             resp = self.client.post(url, json=data)
             return resp

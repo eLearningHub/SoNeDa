@@ -20,3 +20,6 @@ install:
 
 run:
 	poetry run soneda twitter --help
+
+pre-commit:
+	nox -s pre-commit
