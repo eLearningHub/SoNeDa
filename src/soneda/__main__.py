@@ -1,3 +1,4 @@
+"""SoNeDa is a tool for social network data analytics."""
 from soneda.cli import app
 from soneda.twitter.app import twitter_app
 

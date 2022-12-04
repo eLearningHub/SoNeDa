@@ -1,3 +1,5 @@
+"""Setup SoNeDa."""
+
 from setuptools import setup
 
 

@@ -1,3 +1,5 @@
+"""Typer app."""
+
 import typer
 from rich.console import Console
 

@@ -1,3 +1,5 @@
+"""Exceptions."""
+
 class InvalidRequest(Exception):
     ...
 

@@ -1,3 +1,5 @@
+"""TwitterAPIClient."""
+
 import base64
 import dbm
 import hashlib
@@ -24,6 +26,13 @@ CREDENTIALS_FILE = os.path.expanduser(
 
 
 class TwitterAPIClient:
+    """TwitterAPIClient.
+
+    Attributes:
+        get:
+        post:
+        put:
+    """
 
     API_ROOT = os.environ.get("TWITTER_API_ROOT", "https://api.twitter.com")
     AUTH_URL = "https://twitter.com/i/oauth2/authorize"
@@ -35,7 +44,7 @@ class TwitterAPIClient:
     scopes = ["tweet.read", "users.read", "tweet.write", "offline.access"]
 
     def __init__(self, profile: Optional[str] = None):
-
+        """Initialize Twitter client with token."""
         profiles = toml.load(CREDENTIALS_FILE)
         if profile is None:
             profile = list(profiles.keys())[0]
@@ -62,32 +71,38 @@ class TwitterAPIClient:
         self.client = self.create_client_for_token(token)
 
     def fernet(self, key: str) -> Fernet:
+        """fernet."""
         _key = bytes(key[0:32], "utf-8")
         _key = base64.urlsafe_b64encode(_key)
         return Fernet(_key)
 
     def encrypt(self, data: str) -> bytes:
+        """encrypt."""
         return self.fernet(self.consumer_secret).encrypt(data.encode())
 
     def decrypt(self, data: bytes) -> bytes:
+        """decrypt."""
         return self.fernet(self.consumer_secret).decrypt(data)
 
     def token_saver(self, token: dict) -> None:
+        """Saves the token in a local database."""
         data = json.dumps(token)
         _t = self.encrypt(data)
         with dbm.open(self.KEY_DB, "c") as db:
             db[self.consumer_key] = _t
 
     def load_saved_token(self) -> dict:
+        """Loads the token from a local database."""
         try:
             with dbm.open(self.KEY_DB, "c") as db:
                 _token = db[self.consumer_key]
             token = json.loads(self.decrypt(_token))
             return token
-        except:
-            raise (KeyError)
+        except MissingToken as e:
+            raise KeyError from e
 
     def fetch_api_token(self) -> dict:
+        """Fetches the API token."""
         backend = BackendApplicationClient(client_id=self.consumer_key)
         oauth = OAuth2Session(client=backend)
         try:
@@ -103,6 +118,7 @@ class TwitterAPIClient:
         return token
 
     def create_client_for_token(self, token: dict) -> OAuth2Session:
+        """Creates a client for a given token."""
         backend = BackendApplicationClient(client_id=self.consumer_key)
         return OAuth2Session(
             client=backend,
@@ -114,19 +130,22 @@ class TwitterAPIClient:
         )
 
     def clear_saved_token(self) -> None:
+        """Removes the saved token from a local database."""
         with dbm.open(self.KEY_DB.as_posix(), "c") as db:
             if self.consumer_key in db:
                 del db[self.consumer_key]
 
     def reset(self):
+        """Renews the token and creates a new client."""
         self.clear_saved_token()
         token = self.fetch_api_token()
         self.token_saver(token)
         self.client = self.create_client_for_token(token)
 
-    ### Dispatch methods ###
+    # Dispatch methods
 
     def get(self, path: str, **query) -> requests.Response:
+        """REST API GET method."""
         url = f"{self.API_ROOT}{path}"
         if query:
             querystr = urllib.parse.urlencode(query)
@@ -139,11 +158,13 @@ class TwitterAPIClient:
             return self.client.get(url)
 
     def post(self, path: str, data: dict) -> requests.Response:
+        """REST API POST method."""
         url = f"{self.API_ROOT}{path}"
         # logger.debug(f"POSTing URL {url}")
         return self.client.post(url, json=data)
 
     def put(self, path: str, data: dict) -> requests.Response:
+        """REST API PUT method."""
         url = f"{self.API_ROOT}{path}"
         # logger.debug(f"PUTing URL {url}")
         try:

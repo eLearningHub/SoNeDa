@@ -1,3 +1,4 @@
+"""Typer app commands."""
 import os
 from typing import Optional
 
@@ -35,6 +36,7 @@ def config(
         True, "--overwrite/--append", help="Overwrite existing credentials"
     ),
 ):
+    """Configure a Twitter profile."""
     console.print("Configuring a Twitter account")
     dot_twitter = CREDENTIALS_FILE
     if not os.path.exists(dot_twitter) or overwrite:
@@ -58,6 +60,7 @@ def tweets(
         1460323737035677698, help="Required. Enter a single Tweet ID."
     ),
 ):
+    """"Tweets lookup."""
     twitter = TwitterAPIClient(profile)
     tweet = twitter.get("/2/tweets", ids=ids)
     print(tweet.text)
