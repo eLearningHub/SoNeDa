@@ -1,8 +1,0 @@
-name: SoNeDa
-
-channels:
-  - conda-forge
-
-dependencies:
-  - python=3.8.15
-  - smmap=5.0.0
