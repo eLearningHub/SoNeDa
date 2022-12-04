@@ -6,3 +6,4 @@ channels:
 dependencies:
   - python=3.8.15
   - poetry=1.1.12
+  - python3-cachecontrol=0.12.10
