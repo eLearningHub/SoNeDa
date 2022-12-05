@@ -7,6 +7,8 @@ import json
 import os
 import re
 import urllib
+from typing import Any
+from typing import Dict
 from typing import Optional
 
 import requests
@@ -14,7 +16,7 @@ import toml
 from cryptography.fernet import Fernet
 from oauthlib.oauth2 import BackendApplicationClient
 from oauthlib.oauth2.rfc6749.errors import MissingTokenError
-from requests_oauthlib import OAuth2Session
+from requests_oauthlib import OAuth2Session  # type: ignore
 
 
 CREDENTIALS_FILE = os.path.expanduser(
@@ -56,8 +58,8 @@ class TwitterAPIClient:
 
         # Create a code challenge
         code_challenge = hashlib.sha256(self.code_verifier.encode("utf-8")).digest()
-        code_challenge = base64.urlsafe_b64encode(code_challenge).decode("utf-8")
-        self.code_challenge = code_challenge.replace("=", "")
+        code_challenge = base64.urlsafe_b64encode(code_challenge)
+        self.code_challenge = code_challenge.decode("utf-8").replace("=", "")
 
         if os.path.exists(self.KEY_DB):
             token = self.load_saved_token()
@@ -81,14 +83,14 @@ class TwitterAPIClient:
         """decrypt."""
         return self.fernet(self.consumer_secret).decrypt(data)
 
-    def token_saver(self, token: dict) -> None:
+    def token_saver(self, token: Dict[str, str]) -> None:
         """Saves the token in a local database."""
         data = json.dumps(token)
         _t = self.encrypt(data)
         with dbm.open(self.KEY_DB, "c") as db:
             db[self.consumer_key] = _t
 
-    def load_saved_token(self) -> dict:
+    def load_saved_token(self) -> Any:
         """Loads the token from a local database."""
         try:
             with dbm.open(self.KEY_DB, "c") as db:
@@ -98,7 +100,7 @@ class TwitterAPIClient:
         except MissingTokenError as e:
             raise KeyError from e
 
-    def fetch_api_token(self) -> dict:
+    def fetch_api_token(self) -> Any:
         """Fetches the API token."""
         backend = BackendApplicationClient(client_id=self.consumer_key)
         oauth = OAuth2Session(client=backend)
@@ -114,7 +116,7 @@ class TwitterAPIClient:
             raise
         return token
 
-    def create_client_for_token(self, token: dict) -> OAuth2Session:
+    def create_client_for_token(self, token: Dict[str, str]) -> OAuth2Session:
         """Creates a client for a given token."""
         backend = BackendApplicationClient(client_id=self.consumer_key)
         return OAuth2Session(
@@ -132,7 +134,7 @@ class TwitterAPIClient:
             if self.consumer_key in db:
                 del db[self.consumer_key]
 
-    def reset(self):
+    def reset(self) -> None:
         """Renews the token and creates a new client."""
         self.clear_saved_token()
         token = self.fetch_api_token()
@@ -141,7 +143,7 @@ class TwitterAPIClient:
 
     # Dispatch methods
 
-    def get(self, path: str, **query) -> requests.Response:
+    def get(self, path: str, **query: Any) -> requests.Response:
         """REST API GET method."""
         url = f"{self.API_ROOT}{path}"
         if query:
@@ -154,13 +156,13 @@ class TwitterAPIClient:
             self.reset()
             return self.client.get(url)
 
-    def post(self, path: str, data: dict) -> requests.Response:
+    def post(self, path: str, data: Dict[str, str]) -> requests.Response:
         """REST API POST method."""
         url = f"{self.API_ROOT}{path}"
         # logger.debug(f"POSTing URL {url}")
         return self.client.post(url, json=data)
 
-    def put(self, path: str, data: dict) -> requests.Response:
+    def put(self, path: str, data: Dict[str, str]) -> requests.Response:
         """REST API PUT method."""
         url = f"{self.API_ROOT}{path}"
         # logger.debug(f"PUTing URL {url}")

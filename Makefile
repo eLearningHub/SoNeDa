@@ -12,3 +12,6 @@ pre-commit:
 
 safety:
 	nox -s safety
+
+mypy-3.8:
+	nox -s mypy-3.8

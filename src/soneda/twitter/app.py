@@ -35,7 +35,7 @@ def config(
     overwrite: bool = typer.Option(
         True, "--overwrite/--append", help="Overwrite existing credentials"
     ),
-):
+) -> None:
     """Configure a Twitter profile."""
     console.print("Configuring a Twitter account")
     dot_twitter = CREDENTIALS_FILE
@@ -61,7 +61,7 @@ def tweets(
     ids: Optional[str] = typer.Argument(
         1460323737035677698, help="Required. Enter a single Tweet ID."
     ),
-):
+) -> None:
     """Tweets lookup."""
     twitter = TwitterAPIClient(profile)
     tweet = twitter.get("/2/tweets", ids=ids)
