@@ -29,9 +29,14 @@ class TwitterAPIClient:
     """TwitterAPIClient.
 
     Attributes:
-        get:
-        post:
-        put:
+        get: REST API GET
+        post: REST API POST
+        put: REST API PUT
+    
+    Example:
+        >>> twitter = TwitterAPIClient()
+        >>> tweet = twitter.get("/2/tweets", ids=1460323737035677698)
+        >>> assert tweet[0]["id"] == "1460323737035677698"
     """
 
     API_ROOT = os.environ.get("TWITTER_API_ROOT", "https://api.twitter.com")
