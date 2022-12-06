@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "SoNeDa"
+name = "soneda"
 version = "0.0.0"
 description = "Social Networks Data Analytics"
 authors = ["Behzad Samadi <behzad@mechatronics3d.com>"]
