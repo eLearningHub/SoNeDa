@@ -65,4 +65,4 @@ def tweets(
     """Tweets lookup."""
     twitter = TwitterAPIClient(profile)
     tweet = twitter.get("/2/tweets", ids=ids)
-    print(tweet.text)
+    print(tweet)

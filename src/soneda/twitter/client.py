@@ -7,6 +7,7 @@ import json
 import os
 import re
 import urllib
+import json
 from typing import Any
 from typing import Dict
 from typing import Optional
@@ -143,7 +144,7 @@ class TwitterAPIClient:
 
     # Dispatch methods
 
-    def get(self, path: str, **query: Any) -> requests.Response:
+    def get(self, path: str, **query: Any) -> Dict[str, Any]:
         """REST API GET method."""
         url = f"{self.API_ROOT}{path}"
         if query:
@@ -151,10 +152,12 @@ class TwitterAPIClient:
             url = f"{url}?{querystr}"
         # logger.debug(f"GETing URL {url}")
         try:
-            return self.client.get(url)
+            response = self.client.get(url)
         except MissingTokenError:
             self.reset()
-            return self.client.get(url)
+            response = self.client.get(url)
+        
+        return  response.json()["data"]
 
     def post(self, path: str, data: Dict[str, str]) -> requests.Response:
         """REST API POST method."""
