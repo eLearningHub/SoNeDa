@@ -7,13 +7,10 @@ import json
 import os
 import re
 import urllib
-import json
+from pathlib import Path
 from typing import Any
-from typing import List
 from typing import Dict
 from typing import Optional
-
-from pathlib import Path
 
 import toml
 from cryptography.fernet import Fernet
@@ -34,7 +31,7 @@ class TwitterAPIClient:
         get: REST API GET
         post: REST API POST
         put: REST API PUT
-    
+
     Example:
         >>> twitter = TwitterAPIClient()
         >>> tweet = twitter.get("/2/tweets", ids=1460323737035677698)
@@ -163,8 +160,8 @@ class TwitterAPIClient:
         except MissingTokenError:
             self.reset()
             response = self.client.get(url)
-        
-        return  response.json()["data"]
+
+        return response.json()["data"]
 
     def post(self, path: str, data: Dict[str, str]) -> Any:
         """REST API POST method."""

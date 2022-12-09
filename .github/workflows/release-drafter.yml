@@ -1,7 +1,5 @@
 # .github/release-drafter.yml
-name: release-drafter
-
-name: Labeler
+name: Release drafter
 
 on:
   push:
