@@ -1,5 +1,12 @@
 # .readthedocs.yml
 name: readthedocs
+
+on:
+  push:
+    branches:
+      - main
+      - master
+
 version: 2
 sphinx:
   configuration: docs/conf.py

@@ -1,5 +1,14 @@
 # .github/release-drafter.yml
 name: release-drafter
+
+name: Labeler
+
+on:
+  push:
+    branches:
+      - main
+      - master
+
 categories:
   - title: ":boom: Breaking Changes"
     label: "breaking"
