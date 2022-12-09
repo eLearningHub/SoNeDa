@@ -9,10 +9,12 @@ import re
 import urllib
 import json
 from typing import Any
+from typing import List
 from typing import Dict
 from typing import Optional
 
-import requests
+from pathlib import Path
+
 import toml
 from cryptography.fernet import Fernet
 from oauthlib.oauth2 import BackendApplicationClient
@@ -136,7 +138,7 @@ class TwitterAPIClient:
 
     def clear_saved_token(self) -> None:
         """Removes the saved token from a local database."""
-        with dbm.open(self.KEY_DB.as_posix(), "c") as db:
+        with dbm.open(Path(self.KEY_DB).as_posix(), "c") as db:
             if self.consumer_key in db:
                 del db[self.consumer_key]
 
@@ -149,7 +151,7 @@ class TwitterAPIClient:
 
     # Dispatch methods
 
-    def get(self, path: str, **query: Any) -> Dict[str, Any]:
+    def get(self, path: str, **query: Any) -> Any:
         """REST API GET method."""
         url = f"{self.API_ROOT}{path}"
         if query:
@@ -164,13 +166,13 @@ class TwitterAPIClient:
         
         return  response.json()["data"]
 
-    def post(self, path: str, data: Dict[str, str]) -> requests.Response:
+    def post(self, path: str, data: Dict[str, str]) -> Any:
         """REST API POST method."""
         url = f"{self.API_ROOT}{path}"
         # logger.debug(f"POSTing URL {url}")
         return self.client.post(url, json=data)
 
-    def put(self, path: str, data: Dict[str, str]) -> requests.Response:
+    def put(self, path: str, data: Dict[str, str]) -> Any:
         """REST API PUT method."""
         url = f"{self.API_ROOT}{path}"
         # logger.debug(f"PUTing URL {url}")
