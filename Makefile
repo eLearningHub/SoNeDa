@@ -15,3 +15,6 @@ safety:
 
 mypy-3.8:
 	nox -s mypy-3.8
+
+tests-3.8:
+	nox -s tests-3.8

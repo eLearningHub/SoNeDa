@@ -20,7 +20,7 @@ from requests_oauthlib import OAuth2Session  # type: ignore
 
 
 CREDENTIALS_FILE = os.path.expanduser(
-    os.getenv("TWITTER_CREDENTIALS_FILE", "~/.soneda/.twitter")
+    os.getenv("TWITTER_CREDENTIALS_FILE", os.path.expanduser("~/.soneda/.twitter"))
 )
 
 
