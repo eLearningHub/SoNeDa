@@ -21,3 +21,6 @@ tests-3.8:
 
 xdoctest-3.8:
 	nox -s xdoctest-3.8
+
+typeguard:
+	nox -s typeguard
