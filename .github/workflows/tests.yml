@@ -115,6 +115,7 @@ jobs:
 
   coverage:
     runs-on: ubuntu-latest
+    continue-on-error: true
     needs: tests
     steps:
       - name: Check out the repository
@@ -148,7 +149,7 @@ jobs:
 
       - name: Combine coverage data and display human readable report
         run: |
-          nox --session=coverage || true
+          nox --session=coverage
 
       - name: Create coverage report
         run: |
