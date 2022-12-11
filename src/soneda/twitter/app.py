@@ -40,7 +40,7 @@ def config(
     console.print("Configuring a Twitter account")
     dot_twitter = CREDENTIALS_FILE
     if not os.path.exists(dot_twitter) or overwrite:
-        if not os.path.exists("~/.soneda"):
+        if not os.path.exists(os.path.expanduser("~/.soneda")):
             os.makedirs(os.path.expanduser("~/.soneda"))
 
         f = open(dot_twitter, "w")
