@@ -1,7 +1,7 @@
 """Test cases for the __main__ module."""
 
-from soneda.twitter.client import TwitterAPIClient
 from soneda.twitter.app import config
+from soneda.twitter.client import TwitterAPIClient
 
 
 def test_tweets_lookup() -> None:
