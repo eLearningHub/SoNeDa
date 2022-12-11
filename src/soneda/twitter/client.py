@@ -33,7 +33,16 @@ class TwitterAPIClient:
         put: REST API PUT
 
     Example:
+        >>> import os
         >>> twitter = TwitterAPIClient()
+        >>> twitter.config(
+                os.getenv("TWITTER_PROFILE"),
+                os.getenv("TWITTER_CONSUMER_KEY"),
+                os.getenv("TWITTER_CONSUMER_SECRET"),
+                os.getenv("TWITTER_ACCESS_TOKEN_KEY"),
+                os.getenv("TWITTER_ACCESS_TOKEN_SECRET"),
+                os.getenv("TWITTER_BEARER_TOKEN"),
+            )
         >>> tweet = twitter.get("/2/tweets", ids=1460323737035677698)
         >>> assert tweet[0]["id"] == "1460323737035677698"
     """
@@ -73,6 +82,31 @@ class TwitterAPIClient:
             self.token_saver(token)
 
         self.client = self.create_client_for_token(token)
+
+    def config(
+        self,
+        profile: Optional[str],
+        consumer_key: Optional[str],
+        consumer_secret: Optional[str],
+        access_token_key: Optional[str],
+        access_token_secret: Optional[str],
+        bearer_token: Optional[str],
+        overwrite: bool = True,
+    ) -> None:
+        """Configure a Twitter profile."""
+        dot_twitter = CREDENTIALS_FILE
+        if not os.path.exists(dot_twitter) or overwrite:
+            if not os.path.exists(os.path.expanduser("~/.soneda")):
+                os.makedirs(os.path.expanduser("~/.soneda"))
+
+            f = open(dot_twitter, "w")
+            f.write(f"[{profile}]\n")
+            f.write(f'consumer_key="{consumer_key}"\n')
+            f.write(f'consumer_secret="{consumer_secret}"\n')
+            f.write(f'access_token_key="{access_token_key}"\n')
+            f.write(f'access_token_secret="{access_token_secret}"\n')
+            f.write(f'bearer_token="{bearer_token}"\n')
+            f.close()
 
     def fernet(self, key: str) -> Fernet:
         """fernet."""

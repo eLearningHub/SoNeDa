@@ -5,7 +5,6 @@ from typing import Optional
 import typer
 
 from soneda.cli import console
-from soneda.twitter.client import CREDENTIALS_FILE
 from soneda.twitter.client import TwitterAPIClient
 
 
@@ -38,19 +37,16 @@ def config(
 ) -> None:
     """Configure a Twitter profile."""
     console.print("Configuring a Twitter account")
-    dot_twitter = CREDENTIALS_FILE
-    if not os.path.exists(dot_twitter) or overwrite:
-        if not os.path.exists(os.path.expanduser("~/.soneda")):
-            os.makedirs(os.path.expanduser("~/.soneda"))
-
-        f = open(dot_twitter, "w")
-        f.write(f"[{profile}]\n")
-        f.write(f'consumer_key="{consumer_key}"\n')
-        f.write(f'consumer_secret="{consumer_secret}"\n')
-        f.write(f'access_token_key="{access_token_key}"\n')
-        f.write(f'access_token_secret="{access_token_secret}"\n')
-        f.write(f'bearer_token="{bearer_token}"\n')
-        f.close()
+    twitter = TwitterAPIClient(profile)
+    twitter.config(
+        profile,
+        consumer_key,
+        consumer_secret,
+        access_token_key,
+        access_token_secret,
+        bearer_token,
+        overwrite,
+    )
 
 
 @twitter_app.command()
