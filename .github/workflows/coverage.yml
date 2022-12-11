@@ -26,6 +26,6 @@ jobs:
           pipx inject --pip-args=--constraint=.github/workflows/constraints.txt nox nox-poetry
           nox --version
       - name: Generate coverage report
-        run: nox --sessions tests-3.8 coverage
+        run: nox --sessions tests-3.8 coverage || true
         env:
           CODECOV_TOKEN: ${{secrets.CODECOV_TOKEN}}
