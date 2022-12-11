@@ -34,8 +34,7 @@ class TwitterAPIClient:
 
     Example:
         >>> import os
-        >>> twitter = TwitterAPIClient()
-        >>> twitter.config(
+        >>> twitter = TwitterAPIClient(
                 os.getenv("TWITTER_PROFILE"),
                 os.getenv("TWITTER_CONSUMER_KEY"),
                 os.getenv("TWITTER_CONSUMER_SECRET"),
