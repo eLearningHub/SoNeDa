@@ -10,9 +10,22 @@ jobs:
         with:
           python-version: "3.8"
           architecture: x64
-      - run: pip install nox==2019.11.9
-      - run: pip install poetry==1.0.5
-      - run: pip install nox-poetry==1.0.1
-      - run: nox --sessions tests-3.8 coverage
+      - name: Upgrade pip
+        run: |
+          pip install --constraint=.github/workflows/constraints.txt pip
+          pip --version
+
+      - name: Install Poetry
+        run: |
+          pipx install --pip-args=--constraint=.github/workflows/constraints.txt poetry
+          poetry --version
+
+      - name: Install Nox
+        run: |
+          pipx install --pip-args=--constraint=.github/workflows/constraints.txt nox
+          pipx inject --pip-args=--constraint=.github/workflows/constraints.txt nox nox-poetry
+          nox --version
+      - name: Generate coverage report
+        run: nox --sessions tests-3.8 coverage
         env:
           CODECOV_TOKEN: ${{secrets.CODECOV_TOKEN}}
