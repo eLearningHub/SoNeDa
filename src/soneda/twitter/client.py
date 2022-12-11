@@ -56,8 +56,29 @@ class TwitterAPIClient:
     KEY_DB = os.path.expanduser(os.getenv("TWITTER_KEY_DB", "~/.soneda/.twitter.key"))
     scopes = ["tweet.read", "users.read", "tweet.write", "offline.access"]
 
-    def __init__(self, profile: Optional[str] = None):
+    def __init__(
+        self,
+        profile: Optional[str] = None,
+        consumer_key: Optional[str] = None,
+        consumer_secret: Optional[str] = None,
+        access_token_key: Optional[str] = None,
+        access_token_secret: Optional[str] = None,
+        bearer_token: Optional[str] = None,
+        overwrite: bool = True,
+    ):
         """Initialize Twitter client with token."""
+        dot_twitter = CREDENTIALS_FILE
+        if not os.path.exists(dot_twitter):
+            self.config(
+                profile,
+                consumer_key,
+                consumer_secret,
+                access_token_key,
+                access_token_secret,
+                bearer_token,
+                overwrite,
+            )
+
         profiles = toml.load(CREDENTIALS_FILE)
         if profile is None:
             profile = list(profiles.keys())[0]

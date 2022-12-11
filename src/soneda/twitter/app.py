@@ -1,5 +1,4 @@
 """Typer app commands."""
-import os
 from typing import Optional
 
 import typer
@@ -37,8 +36,7 @@ def config(
 ) -> None:
     """Configure a Twitter profile."""
     console.print("Configuring a Twitter account")
-    twitter = TwitterAPIClient(profile)
-    twitter.config(
+    TwitterAPIClient(
         profile,
         consumer_key,
         consumer_secret,
