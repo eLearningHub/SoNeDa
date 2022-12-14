@@ -21,7 +21,9 @@ jobs:
       - name: Install tox
         run: python -m pip install poetry nox nox-poetry
       - name: Build
-        run: nox -s docs-build
+        run: |
+          nox -s docs-build
+          touch docs/_build/.nojekyll
       - name: Deploy to GitHub Pages 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
