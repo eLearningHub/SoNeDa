@@ -1,0 +1,44 @@
+name: Read the Docs
+on:
+  push:
+    branches: [ main ]
+jobs:
+  readthedocs:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        python-version: ["3.8"]
+        sphinx-version: ["sphinx44", "sphinx45", "sphinx50", "sphinx51", "sphinx52", "sphinx53"]
+        readthedocs-theme-version: [ "theme100", "theme110"]
+        sphinxextension: ["on", "off"]
+        include:
+        - os: macos-latest
+          python-version: 3.8
+          sphinx-version: sphinx44
+          readthedocs-theme-version: theme100
+          sphinxextension: "on"
+        - os: windows-latest
+          python-version: 3.8
+          sphinx-version: sphinx44
+          readthedocs-theme-version: theme100
+          sphinxextension: "on"
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install tox
+        run: python -m pip install tox
+      - name: Build
+        run: nox -s docs-build
+    - name: Deploy to GitHub Pages 🚀
+        uses: JamesIves/github-pages-deploy-action@v4.3.3
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: docs/_build/html # The folder the action should deploy.
+          clean: true
+          single-commit: true
+
+# ref: https://github.com/DriesSchaumont/sphinx-subprojecttoctree
