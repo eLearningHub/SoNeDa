@@ -12,17 +12,6 @@ jobs:
         sphinx-version: ["sphinx44"]
         readthedocs-theme-version: ["theme100"]
         sphinxextension: ["on"]
-        include:
-          - os: macos-latest
-            python-version: 3.8
-            sphinx-version: sphinx44
-            readthedocs-theme-version: theme100
-            sphinxextension: "on"
-          - os: windows-latest
-            python-version: 3.8
-            sphinx-version: sphinx44
-            readthedocs-theme-version: theme100
-            sphinxextension: "on"
     steps:
       - uses: actions/checkout@v3
       - name: Set up Python ${{ matrix.python-version }}
