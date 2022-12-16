@@ -25,8 +25,8 @@
 
 ### Commands
 
-- `SoNeDa twitter config`: Store Twitter API credentials
-- `SoNeDa twitter tweets`: Tweets lookup
+- `soneda twitter config`: Store Twitter API credentials
+- `soneda twitter tweets`: Tweets lookup
 
 ## Requirements
 
