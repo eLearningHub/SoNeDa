@@ -5,7 +5,7 @@
 [![Python Version](https://img.shields.io/pypi/pyversions/SoNeDa)][python version]
 [![License](https://img.shields.io/pypi/l/SoNeDa)][license]
 
-[![Read the documentation at https://SoNeDa.readthedocs.io/](https://img.shields.io/readthedocs/SoNeDa/latest.svg?label=Read%20the%20Docs)][read the docs]
+[![Read the documentation at https://SoNeDa.readthedocs.io/](https://img.shields.io/readthedocs/soneda/latest.svg?label=Read%20the%20Docs)][read the docs]
 [![Tests](https://github.com/eLearningHub/SoNeDa/workflows/Tests/badge.svg)][tests]
 [![Codecov](https://codecov.io/gh/eLearningHub/SoNeDa/branch/main/graph/badge.svg)][codecov]
 
