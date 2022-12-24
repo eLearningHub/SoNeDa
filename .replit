@@ -1,11 +1,10 @@
-run = "run"
+run = "make run"
 
 # The primary language of the repl. There can be others, though!
 language = "python3"
 # A list of globs that specify which files and directories should
 # be hidden in the workspace.
 hidden = ["venv", ".config", "**/__pycache__", "**/.mypy_cache", "**/*.pyc"]
-compile = "make"
 
 # Specifies which nix channel to use when building the environment.
 [nix]
